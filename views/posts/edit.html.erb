@@ -15,3 +15,9 @@
   <br />
   <input type="submit" value="Edit Post" />
 </form> 
+<div id="editor"> ><%= @post.body %> </div>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/solarized_dark");
+    editor.getSession().setMode("ace/mode/markdown");
+</script>
