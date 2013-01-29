@@ -1,8 +1,9 @@
 class ApplicationController < Sinatra::Base
     enable :sessions
     enable :logging
-    set :views, "#{$APP_ROOT}/views"
-    set :public_folder, "#{$APP_ROOT}/public"
+    enable :static
+
+    set :root, $APP_ROOT
 
     get '/' do
         'Hello world'
