@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
     enable :static
 
     set :root, $APP_ROOT
+    set :erb, :layout => :"layouts/application.html"
 
     get '/' do
         'Hello world'
