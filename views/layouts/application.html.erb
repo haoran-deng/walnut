@@ -1,21 +1,24 @@
 <html>
-<head>
-  <title><%= title %></title>
-  <% puts request.inspect %>
-  <script src="/javascripts/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-  <style type="text/css" media="screen">
-    #editor { 
-        position: absolute;
-        width: 500px;
-        height: 400px;
-    }
-</style>
-</head>
-<body>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About Me</a></li>
-  </ul>
-  <%= yield %>
-</body>
+    <head>
+        <title><%= title %></title>
+        <link href="/stylesheets/main.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="/javascripts/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/javascripts/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <style type="text/css" media="screen">
+            #editor { 
+                position: absolute;
+                width: 500px;
+                height: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+        <%= yield %>
+    </body>
 </html>
