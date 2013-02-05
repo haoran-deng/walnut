@@ -1,23 +1,25 @@
 <h1>Edit Post</h1>
 <form action="/posts/<%= @post.id %>" method="post">
-  <input type="hidden" name="_method" value="put" /> 
+    <input type="hidden" name="_method" value="put" /> 
 
-  <label for="post_title">Title:</label><br />
-  <input id="post_title" name="post[title]" type="text" value="<%= @post.title %>" />
-  <br />
+    <label for="post_title">Title:</label><br />
+    <input id="post_title" name="post[title]" type="text" value="<%= @post.title %>" />
+    <br />
 
-  <label for="post_body">Body:</label><br />
-  <textarea id="post_body" name="post[body]" rows="5"><%= @post.body %></textarea>
-  <br />
+    <label for="post_body">Body:</label><br />
+    <input id="post_body" name="post[body]" type="hidden" /input>
+    <br />
 
-  <label for="post_type">Type:</label><br />
-  <input id="post_article_type" name="post[article_type]" type="text" value="<%= @post.article_type %>" />
-  <br />
-  <input type="submit" value="Edit Post" />
+    <label for="post_type">Type:</label><br />
+    <input id="post_article_type" name="post[article_type]" type="text" value="<%= @post.article_type %>" />
+    <br />
+    <input type="submit" value="Edit Post" onclick="savePost();"/>
 </form> 
-<div id="editor"> ><%= @post.body %> </div>
+<div id="editor"><%= @post.body %></div>
+<div id="preview"></div>
 <script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/solarized_dark");
-    editor.getSession().setMode("ace/mode/markdown");
+    $(document).ready(function(){MarkdownEditor.initialize();});
+    function savePost(){
+        $('#post_body').val(MarkdownEditor.getContent());
+    }
 </script>

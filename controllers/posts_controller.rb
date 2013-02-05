@@ -8,7 +8,7 @@ class PostController < ApplicationController
         erb :"posts/index"
     end
     # Get the New Post form
-    get "/posts/new" do
+    get "/new" do
         @title = "New Post"
         @post = Post.new
         erb :"posts/new"

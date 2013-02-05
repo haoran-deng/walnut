@@ -1,4 +1,6 @@
 class ApplicationController < Sinatra::Base
+    use Rack::MethodOverride ##<-- Required for put delete
+    
     enable :sessions
     enable :logging
     enable :static
